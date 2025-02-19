@@ -3,6 +3,7 @@
 #include <string>
 #include <set>
 #include <vector>
+#include <queue>
 #include "product.h"
 #include "user.h"
 

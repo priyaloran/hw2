@@ -1,0 +1,8 @@
+These are just personal notes to make sure I go back and check:
+
+Task 1: Make sure to only check product name, book author, and clothing brand 
+Task 2: Make sure they run in nlogn
+Task 3: Make sure everything was edited when copy/pasting header and cpp files
+Task 5: Ensure search result is saved for add cart, make sure username vector is all
+lowercase
+**Make sure libraries are good

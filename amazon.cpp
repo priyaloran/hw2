@@ -9,6 +9,7 @@
 #include "db_parser.h"
 #include "product_parser.h"
 #include "util.h"
+#include "datastore2.h"
 
 using namespace std;
 struct ProdNameSorter {
@@ -29,9 +30,7 @@ int main(int argc, char* argv[])
      * Declare your derived DataStore object here replacing
      *  DataStore type to your derived type
      ****************/
-    DataStore ds;
-
-
+    DataStore2 ds;
 
     // Instantiate the individual section and product parsers we want
     ProductSectionParser* productSectionParser = new ProductSectionParser;
@@ -100,10 +99,41 @@ int main(int argc, char* argv[])
                 done = true;
             }
 	    /* Add support for other commands here */
-
-
-
-
+      // Must add the Add Cart, View Cart, and Buy Cart options
+            else if ( cmd == "ADD") {
+                string username;
+                int index;
+                if(ss >> username >> index) {
+                  username = convToLower(username);
+                  ds.addCart(index - 1, username);
+                }
+                // If they don't give an index or username, invalid username
+                else  {
+                  cout << "Invalid username" << endl;
+                }
+            }
+            else if ( cmd == "VIEWCART") {
+                string username;
+                if(ss >> username) {
+                  username = convToLower(username);
+                  ds.viewCart(username);
+                }
+                // If they don't give a username, invalid username
+                else  {
+                  cout << "Invalid username" << endl;
+                }
+            }
+            else if ( cmd == "BUYCART") {
+                string username;
+                if(ss >> username) {
+                  username = convToLower(username);
+                  ds.buyCart(username);
+                }
+                // If they don't give a username, invalid username
+                else  {
+                  cout << "Invalid username" << endl;
+                }
+            }
             else {
                 cout << "Unknown command" << endl;
             }

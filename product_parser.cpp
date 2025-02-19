@@ -128,10 +128,14 @@ std::string ProductBookParser::categoryID()
  * Your job to fill in the code to create a new book product
  * using the data members in this class and the parent ProductParser class
  */
-Product* ProductBookParser::makeProduct()
-{
 
+// TASK 4: Making products
+Product* ProductBookParser::makeProduct() {
+  // First create a book object that is allocated on the heap
+  Book* bookProduct = new Book("book", prodName_, price_, qty_, isbn_, author_);
 
+  // Finally return the dynamically allocated object  
+  return bookProduct;
 }
 
 
@@ -183,11 +187,14 @@ std::string ProductClothingParser::categoryID()
  * Your job to fill in the code to create a new clothing product
  * using the data members in this class and the parent ProductParser class
  */
-Product* ProductClothingParser::makeProduct()
-{
 
-
-
+// TASK 4: Making products
+Product* ProductClothingParser::makeProduct() {
+  // First create a clothing object that is allocated on the heap
+  Clothing* clothProduct = new Clothing("clothing", prodName_, price_, qty_, size_, brand_);
+  
+  // Finally return the dynamically allocated object  
+  return clothProduct;
 }
 
 
@@ -243,8 +250,12 @@ std::string ProductMovieParser::categoryID()
  * Your job to fill in the code to create a new movie product
  * using the data members in this class and the parent ProductParser class
  */
-Product* ProductMovieParser::makeProduct()
-{
 
+// TASK 4: Making products
+Product* ProductMovieParser::makeProduct() {
+  // First create a movie object that is allocated on the heap
+  Movie* movieProduct = new Movie("movie", prodName_, price_, qty_, rating_, genre_);
 
+  // Finally return the dynamically allocated object  
+  return movieProduct;
 }
